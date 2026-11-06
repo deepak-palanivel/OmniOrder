@@ -1,0 +1,30 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Database & SQLite files
+*.db
+*.db-shm
+*.db-wal
+test_*.db
+
+# Node / Frontend
+node_modules/
+client/node_modules/
+client/dist/
+dist/
+.vite/
+
+# OS Files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/OmniOrder.Api/OmniOrder.Api.csproj" />
+    <Project Path="src/OmniOrder.Application/OmniOrder.Application.csproj" />
+    <Project Path="src/OmniOrder.Domain/OmniOrder.Domain.csproj" />
+    <Project Path="src/OmniOrder.Infrastructure/OmniOrder.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/OmniOrder.IntegrationTests/OmniOrder.IntegrationTests.csproj" />
+  </Folder>
+</Solution>

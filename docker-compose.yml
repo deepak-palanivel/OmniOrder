@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  omniorder-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: omniorder-api
+    ports:
+      - "5000:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Data Source=/app/data/omniorder.db
+      - Jwt__Key=OmniOrder-SuperSecret-JWT-Key-For-Development-2026-Must-Be-256-Bits!
+      - Jwt__Issuer=OmniOrder
+      - Jwt__Audience=OmniOrderClient
+      - Webhook__Secret=omni-webhook-secret-key-for-hmac-sha256
+    volumes:
+      - sqlite-data:/app/data
+    restart: unless-stopped
+
+  # Optional: MS SQL Server toggle (uncomment to switch from SQLite)
+  # sqlserver:
+  #   image: mcr.microsoft.com/mssql/server:2022-latest
+  #   container_name: omniorder-sqlserver
+  #   environment:
+  #     - ACCEPT_EULA=Y
+  #     - MSSQL_SA_PASSWORD=OmniOrder_Passw0rd!
+  #   ports:
+  #     - "1433:1433"
+  #   volumes:
+  #     - mssql-data:/var/opt/mssql
+
+  # Optional: PostgreSQL toggle (uncomment to switch from SQLite)
+  # postgres:
+  #   image: postgres:16-alpine
+  #   container_name: omniorder-postgres
+  #   environment:
+  #     - POSTGRES_USER=omniorder
+  #     - POSTGRES_PASSWORD=omniorder_password
+  #     - POSTGRES_DB=omniorder_db
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
+
+volumes:
+  sqlite-data:
+  # mssql-data:
+  # pgdata:

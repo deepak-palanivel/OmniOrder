@@ -1,0 +1,6 @@
+@OmniOrder.Api_HostAddress = http://localhost:5038
+
+GET {{OmniOrder.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
